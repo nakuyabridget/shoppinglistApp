@@ -1,11 +1,16 @@
+<!-- a row that has a column section within it-->
 <div class="row">
     <div class="col-md-5">
+
+        <!--passing the event selectedRecipe to app-recipe-list component-->
         <app-recipe-list (recipeWasSelected)="selectedRecipe = $event"> </app-recipe-list>
 
     </div>
-
+    <!--another column within the row put in place at the start of line 2 of this code-->
     <div class="col-md-7">
         <app-recipe-detail *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-detail>
+
+        <!-- a simple ng tempate with a few words that show in this newly created column before an item is selected-->
         <ng-template #infoText>
             <p>Please select Recipe!</p>
         </ng-template>
